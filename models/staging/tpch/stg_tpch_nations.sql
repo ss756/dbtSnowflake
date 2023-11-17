@@ -29,6 +29,6 @@ select * from renamed
 {% if is_incremental() %}
 
   -- this filter will only be applied on an incremental run
-  where last_updated_date > (select max(last_updated_date) from {{ this }})
+  where LAST_UPDATED_DATE > (select max(last_updated_date) from {{ this }})
 
 {% endif %}
