@@ -9,19 +9,6 @@
 
 {{ config(materialized='table') }}
 
-with source_data as (
+SELECT * FROM {{ source('snowflake_sample_data', 'ORDERS') }}
 
-    select 1 as id
-    union all
-    select null as id
 
-)
-
-select *
-from source_data
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
