@@ -38,5 +38,5 @@ from
 inner join line_item
         on orders.order_key= line_item.order_key
 order by
-    order_date
+    orders.order_date
 
